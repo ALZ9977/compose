@@ -27,8 +27,7 @@ services:
     depends_on:
       analytics:
         condition: service_healthy
-    ports:
-      - "3100:3000"
+  
     environment:
       STUDIO_PG_META_URL: http://meta:8080
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -60,6 +59,8 @@ services:
     depends_on:
       analytics:
         condition: service_healthy
+    ports:
+      - "8000:8000"
     environment:
       KONG_DATABASE: "off"
       KONG_DECLARATIVE_CONFIG: /home/kong/kong.yml
